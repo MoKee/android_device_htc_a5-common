@@ -50,7 +50,7 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02008000 --tags_offset 0x01e00000
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 TARGET_KERNEL_SOURCE := kernel/htc/msm8974
-TARGET_KERNEL_CONFIG := cm_a5_defconfig
+TARGET_KERNEL_CONFIG := mokee_a5_defconfig
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -143,10 +143,10 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += device/htc/a5-common/sepolicy
 
 # Hardware
-BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_USES_MOKEE_HARDWARE := true
 BOARD_HARDWARE_CLASS += \
-    device/htc/a5-common/cmhw \
-    hardware/cyanogen/cmhw
+    device/htc/a5-common/mkhw \
+    hardware/mokee/mkhw
 
 # inherit from the proprietary version
 -include vendor/htc/a5-common/BoardConfigVendor.mk
