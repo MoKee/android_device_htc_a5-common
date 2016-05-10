@@ -31,7 +31,6 @@ TARGET_NO_BOOTLOADER := true
 # Platform
 TARGET_BOARD_PLATFORM := msm8226
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
-USE_CLANG_PLATFORM_BUILD := true
 
 # Architecture
 TARGET_ARCH := arm
@@ -51,6 +50,12 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02008000 -
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 TARGET_KERNEL_SOURCE := kernel/htc/msm8974
 TARGET_KERNEL_CONFIG := mokee_a5_defconfig
+
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+WITH_DEXPREOPT := true
+DONT_DEXPREOPT_PREBUILTS := true
+endif
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
